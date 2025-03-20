@@ -7,6 +7,7 @@ export default defineConfig({
   manifest: {
     host_permissions: [
       "<all_urls>",
-    ]
+    ],
+    permissions: ["storage"]
   }
 });

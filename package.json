@@ -17,6 +17,8 @@
   "dependencies": {
     "@libp2p/bootstrap": "^10",
     "@waku/sdk": "^0.0.29",
+    "ethers": "^6.13.5",
+    "eventemitter3": "^5.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
