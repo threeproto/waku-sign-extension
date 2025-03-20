@@ -52,6 +52,7 @@ async function handleProviderRequest({ method, params }) {
       case "eth_sendTransaction":
         const tx = params[0];
         console.log("tx", tx);
+        tx.chainId = 11155111;
         storedKey = await chrome.storage.local.get("privateKey");
         wallet = new ethers.Wallet(storedKey.privateKey, provider);
         const signedTx = await wallet.signTransaction(tx);
