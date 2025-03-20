@@ -7,6 +7,15 @@ export default defineConfig({
   manifest: {
     host_permissions: [
       "<all_urls>",
-    ]
+    ],
+    web_accessible_resources: [
+      {
+        resources: ["injected.js"],
+        matches: ["*://*/*"],
+      },
+    ],
+  },
+  runner: {
+    startUrls: ["https://metamask.github.io/test-dapp/"]
   }
 });
