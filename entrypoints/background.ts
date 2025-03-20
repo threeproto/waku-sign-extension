@@ -12,6 +12,9 @@ import {
   Protocols
 } from "@waku/sdk";
 
+import debug from "debug";
+debug.enable('waku*');
+
 // Define content topic globally
 const contentTopic = "/light-guide/1/message/proto";
 
