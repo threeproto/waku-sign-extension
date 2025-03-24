@@ -8,6 +8,22 @@ export default defineContentScript({
     });
     console.log("Done!");
 
+    // chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    //   console.log("Message from background script:", message);
+    //   if (message.type === "websocketMessage") {
+    //     console.log("Forwarding message to injected script:", message.data);
+    //     window.postMessage(
+    //       {
+    //         source: "waku-wallet-response",
+    //         id: message.data.id, // Keep the same ID
+    //         response: message.data.data,
+    //       },
+    //       "*"
+    //     );
+    //     return true; // Keep channel open for async response
+    //   }
+    // });
+
     // Listen for messages from the injected script
     window.addEventListener("message", (event) => {
       if (event.source !== window || !event.data || event.data.source !== "waku-wallet") {

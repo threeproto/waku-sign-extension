@@ -93,6 +93,8 @@ export class WindowEthereumProvider extends EventEmitter {
       // Store the callback so we can resolve it later
       this.pendingRequests.set(requestId, { resolve, reject });
 
+      args.id = requestId;
+
       window.postMessage(
         {
           source: "waku-wallet",
@@ -105,6 +107,7 @@ export class WindowEthereumProvider extends EventEmitter {
 
       // Listen for the response
       const handler = (event) => {
+        console.log("received event:", event);
         if (
           event.data?.source === "waku-wallet-response" &&
           event.data.id === requestId
